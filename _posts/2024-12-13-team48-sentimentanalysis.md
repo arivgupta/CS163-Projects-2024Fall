@@ -7,7 +7,7 @@ date: 2024-12-13
 ---
 
 
-> Exploring the cutting-edge field of Audio-Visual Sentiment Analysis (AVSA), and how multimodal data—comprising visual, audio, and textual inputs—can be integrated to better understand human emotions.
+> Our group explored the cutting-edge field of Audio-Visual Sentiment Analysis (AVSA), and how multimodal data (comprising of visual, audio, and textual inputs) can be combined to better understand human emotion.
 
 
 <!--more-->
@@ -32,13 +32,13 @@ date: 2024-12-13
 
 ## Introduction
 
-The rise of multimedia platforms such as YouTube, TikTok, and Instagram has transformed the way emotions are expressed and perceived online. These platforms often feature a rich interplay of audio and visual cues that convey sentiment more effectively than text alone. Traditional sentiment analysis methods, while effective for written data, struggle to interpret the complexity of human emotions expressed through speech tones, facial expressions, and gestures. Audio-Visual Sentiment Analysis (AVSA) leverages both visual and auditory cues to capture the nuanced expressions of human sentiment in video content.
+The rise of multimedia platforms such as YouTube, TikTok, and Instagram has transformed the way emotions are expressed and perceived online. These platforms feature a huge amount of audio and visual cues that convey sentiment more effectively than simply text. Traditional sentiment analysis methods are effective for written text but struggle tremendously to interpret the complexity of human emotions from speech tones, facial expressions, and gestures. Audio-Visual Sentiment Analysis (AVSA) uses both visual and auditory cues to capture the nuanced expressions of human sentiment in the context of videos.
 
-Sentiment analysis in videos is inherently more complex than its text-based counterpart due to the dynamic nature of audiovisual content. Facial expressions, body language, tone of voice, and verbal content all contribute to the overall emotional message. Traditional unimodal approaches often fall short in capturing these intricate interactions, necessitating multimodal solutions. For instance, a sarcastic comment may appear positive when analyzed textually but may convey negative sentiment when combined with an exasperated tone and a disapproving facial expression.
+Sentiment analysis in videos is much harder than in plain text because of the complexity of audiovisual content. After all, facial expressions, body language, tone of voice, and verbal content all contribute to the overall emotional message. Common unimodal approaches can't capture these interactions, forcing us to use multimodal solutions. A perfect example of this is that of a sarcastic comment - it may appear positive when analyzed textually but conveys a negative sentiment when combined with an exasperated tone and a disapproving facial expression.
 
 ### Objectives
 
-1. To analyze the effectiveness of multimodal sentiment analysis in improving prediction accuracy.
+1. To analyze the effectiveness of multimodal sentiment analysis in improving emotion prediction accuracy.
 2. To evaluate state-of-the-art attention mechanisms for modeling cross-modal dependencies.
 3. To explore the potential applications and challenges of deploying these techniques in real-world scenarios.
 
