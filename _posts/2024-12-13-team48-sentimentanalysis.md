@@ -1,39 +1,50 @@
 ---
 layout: post
 comments: true
-title: Post Template
-author: Ariv Gupta, Lucas Wheeler, Deniss Gavrilenko
-date: 2024-01-01
+title: Audio-Visual Sentiment Analysis
+author: Ariv Gupta, Lucas Wheeler, Dennis Gavrilenko
+date: 2024-12-13
 ---
 
 
-> This block is a brief introduction of your project. You can put your abstract here or any headers you want the readers to know.
+> Exploring the cutting-edge field of Audio-Visual Sentiment Analysis (AVSA), and how multimodal data—comprising visual, audio, and textual inputs—can be integrated to better understand human emotions.
 
 
 <!--more-->
-{: class="table-of-content"}
-* TOC
-{:toc}
 
-# Audio-Visual Sentiment Analysis: Fusing Modalities for Robust Emotion Recognition in Videos
+- [Introduction](#introduction)
+- [Key Components](#key-components)
+  - [Visual Analysis](#visual-analysis)
+  - [Audio Analysis](#audio-analysis)
+  - [Textual Analysis](#textual-analysis)
+- [Methodologies](#methodologies)
+  - [Gaussian Adaptive Attention Mechanism (GAAM)](#gaussian-adaptive-attention-mechanism-gaam)
+  - [COnversation Understanding with Relational Temporal Graph Neural Network (CORECT)](#conversation-understanding-with-relational-temporal-graph-neural-network-corect)
+  - [Video Sentiment Analysis with Bimodal Multi-Head Attention (BIMHA)](#video-sentiment-analysis-with-bimodal-multi-head-attention-bimha)
+- [Applications](#applications)
+  - [Understanding Emotional Arcs in Movies (MIT Media Lab)](#understanding-emotional-arcs-in-movies-mit-media-lab)
+  - [Mental Health and Real-Time Monitoring (Okaya.me)](#mental-health-and-real-time-monitoring-okaya-integration)
+- [Looking Ahead](#looking-ahead)
+  - [Challenges](#challenges)
+  - [Future Directions](#future-directions)
+- [Conclusion](#conclusion)
+- [References](#references)
 
 ## Introduction
 
-The rise of multimedia platforms such as YouTube, TikTok, and Instagram has transformed the way emotions are expressed and perceived online. These platforms often feature a rich interplay of audio and visual cues that convey sentiment more effectively than text alone. Traditional sentiment analysis methods, while effective for written data, struggle to interpret the complexity of human emotions expressed through speech tones, facial expressions, and gestures. Audio-Visual Sentiment Analysis (AVSA) leverages both visual and auditory cues to capture the nuanced expressions of human sentiment in video content[1].
+The rise of multimedia platforms such as YouTube, TikTok, and Instagram has transformed the way emotions are expressed and perceived online. These platforms often feature a rich interplay of audio and visual cues that convey sentiment more effectively than text alone. Traditional sentiment analysis methods, while effective for written data, struggle to interpret the complexity of human emotions expressed through speech tones, facial expressions, and gestures. Audio-Visual Sentiment Analysis (AVSA) leverages both visual and auditory cues to capture the nuanced expressions of human sentiment in video content.
 
-## Background
+Sentiment analysis in videos is inherently more complex than its text-based counterpart due to the dynamic nature of audiovisual content. Facial expressions, body language, tone of voice, and verbal content all contribute to the overall emotional message. Traditional unimodal approaches often fall short in capturing these intricate interactions, necessitating multimodal solutions. For instance, a sarcastic comment may appear positive when analyzed textually but may convey negative sentiment when combined with an exasperated tone and a disapproving facial expression.
 
-Sentiment analysis in videos is inherently more complex than its text-based counterpart due to the dynamic nature of audiovisual content. Facial expressions, body language, tone of voice, and verbal content all contribute to the overall emotional message. Traditional unimodal approaches often fall short in capturing these intricate interactions, necessitating multimodal solutions. For instance, a sarcastic comment may appear positive when analyzed textually but may convey negative sentiment when combined with an exasperated tone and a disapproving facial expression[1].
-
-## Objectives
+### Objectives
 
 1. To analyze the effectiveness of multimodal sentiment analysis in improving prediction accuracy.
 2. To evaluate state-of-the-art attention mechanisms for modeling cross-modal dependencies.
-3. To explore the potential applications and challenges of deploying these techniques in real-world scenarios[1].
+3. To explore the potential applications and challenges of deploying these techniques in real-world scenarios.
 
 ## Key Components
 
-Audio-visual sentiment analysis combines three fundamental modalities: visual, audio, and textual data. Each modality contributes unique insights into emotional states, and their integration enables a holistic analysis[1].
+Audio-visual sentiment analysis combines three fundamental modalities: visual, audio, and textual data. Each modality contributes unique insights into emotional states, and their integration enables a holistic analysis.
 
 ### 1. Visual Analysis
 
@@ -42,7 +53,7 @@ Visual features such as facial expressions, gestures, and body language play a p
 - Facial Landmark Detection: Identifying key points such as eyes, nose, and mouth to track expressions dynamically.
 - Convolutional Neural Networks (CNNs): Extracting deep hierarchical features from video frames for emotion classification.
 
-Example: A smile detected in visual data often correlates with positive sentiment, but subtle variations in facial tension may indicate sarcasm or discomfort[1].
+Example: A smile detected in visual data often correlates with positive sentiment, but subtle variations in facial tension may indicate sarcasm or discomfort.
 
 ### 2. Audio Analysis
 
@@ -51,7 +62,7 @@ Audio signals reveal emotions through speech tone, pitch, and intensity. Key tec
 - Mel-frequency Cepstral Coefficients (MFCCs): Representing audio signals in a frequency domain to capture emotional features.
 - Speech Prosody Analysis: Examining rhythm, stress, and intonation patterns for sentiment detection.
 
-Example: An elevated pitch combined with a rapid speech rate may indicate excitement, while a flat tone suggests apathy[1].
+Example: An elevated pitch combined with a rapid speech rate may indicate excitement, while a flat tone suggests apathy.
 
 ### 3. Textual Analysis
 
@@ -60,24 +71,26 @@ While secondary to audio-visual data in this context, textual input provides cru
 - Sentiment Classification: Determining polarity (positive, negative, neutral).
 - Contextual Understanding: Recognizing idiomatic expressions, sarcasm, or contextual cues.
 
-Example: The phrase "I'm fine" may appear neutral in isolation but acquires a negative connotation when paired with a frustrated tone and averted gaze[1].
+Example: The phrase "I'm fine" may appear neutral in isolation but acquires a negative connotation when paired with a frustrated tone and averted gaze.
 
 ## Methodologies
 
 ### Gaussian Adaptive Attention Mechanism (GAAM)
 
-#### Summary
+### Summary
 
-The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modeling non-stationary data by incorporating learnable Gaussian parameters for dynamic feature recalibration. By enhancing explainability and robustness, GAAM excels in multi-modal tasks such as emotion recognition and text classification[1].
+The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modeling non-stationary data by incorporating learnable Gaussian parameters for dynamic feature recalibration. By enhancing explainability and robustness, GAAM excels in multi-modal tasks such as emotion recognition and text classification.
 
-#### Key Contributions
+### Key Contributions
 
 - GAAM introduces a learnable Gaussian-based attention mechanism where the mean and variance are dynamically adjusted. This enhances the model's ability to capture contextually significant features across modalities such as text, audio, and vision.
-- The mechanism integrates an Importance Factor (IF), improving the explainability of attention outputs by quantifying feature significance[1].
+- The mechanism integrates an Importance Factor (IF), improving the explainability of attention outputs by quantifying feature significance.
 
-#### Technical Innovations
+![GAAM]({{ '/assets/images/48/GAAM.png' | relative_url }})
 
-##### 1. Utterance-Level Feature Extraction
+### Technical Innovations
+
+#### 1. Utterance-Level Feature Extraction
 
 **Unimodal Encoding**
 
@@ -88,16 +101,16 @@ The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modelin
 - For text, a Transformer encoder generates semantic features: $$x_i^l = \text{Transformer}(u_i^l, W_l^\text{trans})$$, where $$W_l^\text{trans}$$ represents the trainable parameters of the Transformer model.
 - For audio and visual features, a fully connected network (FCN) is used:
   $$x_i^a = \text{FCN}(u_i^a, W_a^\text{FCN}), \quad x_i^v = \text{FCN}(u_i^v, W_v^\text{FCN})$$
-  where $$W_a^\text{FCN}$$ and $$W_v^\text{FCN}$$ are learnable parameters for each modality[1].
+  where $$W_a^\text{FCN}$$ and $$W_v^\text{FCN}$$ are learnable parameters for each modality.
 
 **Speaker Embedding**
 
 - Speaker identity is encoded to capture conversational dynamics: $$S_\text{emb} = \text{Embedding}(S, N_S)$$, where $$N_S$$ is the total number of speakers.
 - Speaker embeddings are added to the unimodal features to enhance context:
   $$X^\tau = \eta S_\text{emb} + X^\tau, \quad \tau \in \{a, v, l\}$$
-  where $$\eta \in [0,1]$$ controls the contribution of speaker information[1].
+  where $$\eta \in [0,1]$$ controls the contribution of speaker information.
 
-##### 2. Relational Temporal Graph Convolutional Network (RT-GCN)
+#### 2. Relational Temporal Graph Convolutional Network (RT-GCN)
 
 **Multimodal Graph Construction**
 
@@ -110,7 +123,7 @@ The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modelin
   $$R_\text{multi} = \{(u_i^a, u_i^v), (u_i^v, u_i^l), (u_i^l, u_i^a)\}.$$
 - Temporal relationships ($$R_\text{temp}$$) capture connections across time:
   $$R_\text{temp} = \{(u_j^\tau \rightarrow u_i^\tau) | i-P < j < i+F\},$$
-  where $$P$$ and $$F$$ are the past and future windows, respectively[1].
+  where $$P$$ and $$F$$ are the past and future windows, respectively.
 
 **Graph Learning**
 
@@ -119,9 +132,9 @@ The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modelin
   where:
   - $$N_r(i)$$: Neighbors of node $$i$$ for relation $$r$$,
   - $$W_r, W_o$$: Learnable weight matrices,
-  - $$x_i^\tau$$: Feature vector for node $$i$$ and modality $$\tau$$[1].
+  - $$x_i^\tau$$: Feature vector for node $$i$$ and modality $$\tau$$.
 
-##### 3. Pairwise Cross-Modal Feature Interaction (P-CM)
+#### 3. Pairwise Cross-Modal Feature Interaction (P-CM)
 
 **Cross-Modal Attention**
 
@@ -135,7 +148,7 @@ The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modelin
   where:
   - $$\sigma$$: Softmax function,
   - $$W_Q, W_K, W_V$$: Learnable parameter matrices,
-  - $$d_k$$: Scaling factor[1].
+  - $$d_k$$: Scaling factor.
 
 **Sequential Cross-Modal Layers**
 
@@ -148,7 +161,7 @@ The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modelin
 - This process is repeated for all modality pairs to obtain global cross-modal features:
   $$Z^\text{final} = [Z_{a \to l}, Z_{v \to l}, Z_{a \to v}].$$
 
-##### 4. Multimodal Emotion Classification
+#### 4. Multimodal Emotion Classification
 
 **Fusion and Prediction**
 
@@ -159,22 +172,26 @@ The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modelin
   $$v_i = \text{ReLU}(\Phi_o h_i + b_o),$$
   $$p_i = \text{softmax}(\Phi_1 v_i + b_1),$$
   $$\hat{y}_i = \arg\max(p_i).$$
-  Here, $$\Phi_o, \Phi_1$$ are learnable parameters, and $$\hat{y}_i$$ is the predicted emotion label[1].
+  Here, $$\Phi_o, \Phi_1$$ are learnable parameters, and $$\hat{y}_i$$ is the predicted emotion label.
+
+---
 
 ### COnversation Understanding with Relational Temporal Graph Neural Network (CORECT)
 
-#### Summary
+### Summary
 
-The CORECT model is a novel neural network framework designed for multimodal emotion recognition in conversations (ERC). It combines relational temporal graph convolution networks with cross-modal interactions to improve emotional understanding across dialogues[1].
+The CORECT model is a novel neural network framework designed for multimodal emotion recognition in conversations (ERC). It combines relational temporal graph convolution networks with cross-modal interactions to improve emotional understanding across dialogues.
 
-#### Key Contributions
+### Key Contributions
 
 - CORECT introduces the Relational Temporal Graph Convolutional Network (RT-GCN) for modeling temporal dependencies and the Pairwise Cross-Modal Feature Interaction (P-CM) for global multimodal context.
-- By explicitly leveraging temporal and multimodal relationships, CORECT achieves state-of-the-art results in ERC tasks[1].
+- By explicitly leveraging temporal and multimodal relationships, CORECT achieves state-of-the-art results in ERC tasks.
 
-#### Technical Innovations
+![CORECT]({{ '/assets/images/48/CORECT.png' | relative_url }})
 
-##### 1. Relational Graph Convolutional Network (RGCN)
+### Technical Innovations
+
+#### 1. Relational Graph Convolutional Network (RGCN)
 
 - Objective: To capture interactions between different nodes (utterances) and modalities (audio, video, text) in a multimodal graph.
 - Node Representation: For each relation $$r$$ (e.g., between audio and text or between past and future utterances), the node representation is updated based on its neighbors:
@@ -186,9 +203,9 @@ The CORECT model is a novel neural network framework designed for multimodal emo
   - The second term adds a self-projected representation for the node using $$W_0$$.
 - Intuition: This equation ensures that each node's features are updated by considering:
   - Its own information (self-representation).
-  - Information from neighboring nodes with respect to their relationships (e.g., temporal or cross-modal links)[1].
+  - Information from neighboring nodes with respect to their relationships (e.g., temporal or cross-modal links).
 
-##### 2. Graph Transformer for Feature Enrichment
+#### 2. Graph Transformer for Feature Enrichment
 
 - Why a Transformer? To capture local (neighbor-specific) and global (entire graph) patterns in the graph.
 - Node Transformation: After the RGCN updates, each node's features are further refined using a Graph Transformer. The new representation is given by:
@@ -202,9 +219,11 @@ The CORECT model is a novel neural network framework designed for multimodal emo
 
 **Final Node Representations:** Once the Graph Transformer processes all nodes, the final graph embeddings for each modality ($$a, v, l$$) are obtained as:
 $$G^\tau = \{o_1^\tau, o_2^\tau, \ldots, o_N^\tau\}, \quad \tau \in \{a, v, l\}$$
-- $$G^\tau$$: Set of updated node representations for modality $$\tau$$ (audio, video, or text)[1].
+- $$G^\tau$$: Set of updated node representations for modality $$\tau$$ (audio, video, or text).
 
-## Video Sentiment Analysis with Bimodal Multi-Head Attention (BIMHA)
+---
+
+### Video Sentiment Analysis with Bimodal Multi-Head Attention (BIMHA)
 
 BIMHA is a sophisticated framework designed for modeling complex emotional dynamics in videos by leveraging hierarchical bimodal attention. This approach excels at integrating visual, auditory, and textual data for robust sentiment prediction.
 
@@ -212,6 +231,8 @@ BIMHA is a sophisticated framework designed for modeling complex emotional dynam
 
 - Utilizes hierarchical attention to model relationships between textual, visual, and auditory modalities for video-based sentiment analysis.
 - Assigns varying weights to pairwise modality interactions (e.g., text-audio, audio-visual), capturing nuanced emotional cues.
+
+![BIMHA]({{ '/assets/images/48/BIMHA.png' | relative_url }})
 
 ### Technical Innovations
 
@@ -277,45 +298,61 @@ The field of audio-visual sentiment analysis continues to evolve rapidly, offeri
 
 ## Applications
 
-### Learning Emotional Arcs in Movies
+### Understanding Emotional Arcs in Movies (MIT Media Lab)
 
-Models like BIMHA enable the analysis of emotional trajectories in films, offering insights into character development, plot structure, and audience engagement. By capturing subtle emotional changes across scenes, they can inform script writing and editing for stronger emotional resonance[1].
+Using data from over 500 Hollywood films and 1500 Vimeo shorts, researchers at the MIT Media Lab created "emotional arcs" to map the ebb and flow of sentiment across a story. These arcs were generated by combining audio features (e.g., speech tone, background score) with visual valence cues (e.g., lighting, actor expressions). By clustering films into six optimal categories, they discovered emotional patterns tied to genres, such as "Adventure" and "Romantic Comedy," and demonstrated that films with specific arc shapes garnered higher audience engagement and comments on Vimeo.
 
-### Brand Evaluation
+For instance:
+- **Evaluation Results**: Emotional spikes correlated with narrative engagement, achieving a precision rate of 75.8%.
+- **Integration of Audio-Visual Features**: Accuracy in sentiment alignment improved by 18% when combining movie embeddings with unimodal models.
 
-CORECT's advanced sentiment analysis techniques empower companies to analyze customer feedback across textual, auditory, and visual channels. This allows for a more holistic understanding of customer perceptions, helping refine marketing strategies and improve product offerings[1].
+This breakthrough highlights the potential for emotion-driven storytelling to captivate audiences and enhance movie-making processes. Check out the MIT Media Lab’s [official research page here](https://alumni.media.mit.edu/~echu/assets/projects/emotional-arcs/11.2017.ICDM.pdf).
 
-### Healthcare
+---
 
-GAAM supports clinicians by identifying emotional patterns in patients through multimodal data. This can aid in diagnosing mental health conditions such as anxiety, depression, or PTSD, and can also be integrated into therapy tools for real-time emotional monitoring[1].
+### Mental Health and Real-Time Monitoring (Okaya Integration)
 
-## Challenges and Future Directions
+Okaya, a company specializing in wellness and emotional health through computer vision, has been heavily investing in multimodal sentiment analysis for years. We spoke directly with their CEO, who shared their ongoing efforts to use sentiment analysis for real-world applications, such as **pre-flight wellness checks for airplane pilots**. Their system analyzes video and audio data in real-time to assess stress, fatigue, and overall emotional well-being, ensuring pilots are mentally fit before boarding flights.
+
+Key features of Okaya’s system:
+- **Wellness Monitoring**: Employs advanced computer vision to detect subtle changes in facial expressions, posture, and vocal tone.
+- **Data-Driven Diagnostics**: Combines machine learning models like GAAM with proprietary algorithms to deliver accurate emotional insights.
+- **Real-World Integration**: Their platform is already deployed in the aviation industry, focusing on critical safety applications.
+
+Okaya’s leadership in this space highlights the importance of sentiment analysis in improving emotional health and ensuring public safety. Learn more about their work at [Okaya’s official website](https://www.okaya.me).
+
+## Looking Ahead
 
 ### Challenges
 
-1. **Data Complexity**: Advanced models like CORECT and BIMHA require high-quality, annotated datasets that are often difficult to compile and maintain. Processing multimodal data demands significant computational resources and careful data preprocessing[1].
+1. **Data Complexity**: Advanced models like CORECT and BIMHA require high-quality, annotated datasets that are often difficult to compile and maintain. Processing multimodal data demands significant computational resources and careful data preprocessing.
 
-2. **Alignment Issues**: Synchronization between modalities such as text, audio, and video remains a technical hurdle. Ensuring that these modalities are properly aligned temporally is critical for accurate sentiment predictions[1].
+2. **Alignment Issues**: Synchronization between modalities such as text, audio, and video remains a technical hurdle. Ensuring that these modalities are properly aligned temporally is critical for accurate sentiment predictions.
 
-3. **Contextual Understanding**: Interpreting emotions across diverse cultural and situational contexts remains challenging. Models may struggle to adapt to nuances in language, tone, and visual expressions that vary across demographics[1].
+3. **Contextual Understanding**: Interpreting emotions across diverse cultural and situational contexts remains challenging. Models may struggle to adapt to nuances in language, tone, and visual expressions that vary across demographics.
 
 ### Future Directions
 
-1. **Algorithmic Optimization**: Developing lightweight models and efficient attention mechanisms to reduce computational overhead without sacrificing performance. Techniques like pruning and quantization could make models more accessible for real-time applications[1].
+1. **Algorithmic Optimization**: Developing lightweight models and efficient attention mechanisms to reduce computational overhead without sacrificing performance. Techniques like pruning and quantization could make models more accessible for real-time applications.
 
-2. **Diverse Applications**: Extending multimodal sentiment analysis to domains such as education (e.g., assessing student engagement through lectures) and law enforcement (e.g., analyzing suspect behavior during interrogations) to broaden its societal impact[1].
+2. **Diverse Applications**: Extending multimodal sentiment analysis to domains such as education (e.g., assessing student engagement through lectures) and law enforcement (e.g., analyzing suspect behavior during interrogations) to broaden its societal impact.
 
-3. **Ethical Considerations**: Addressing privacy concerns, data security, and bias in emotion recognition systems. Developing frameworks for ethical AI use, including transparent data usage policies and fairness across demographic groups, is essential for long-term adoption[1].
+3. **Ethical Considerations**: Addressing privacy concerns, data security, and bias in emotion recognition systems. Developing frameworks for ethical AI use, including transparent data usage policies and fairness across demographic groups, is essential for long-term adoption.
 
 ## Conclusion
 
-Audio-visual sentiment analysis represents a significant advancement in understanding human emotions. By leveraging advanced attention mechanisms like BIMHA, BMAN, and GAAM, researchers can unlock new possibilities across industries, from entertainment to healthcare. As this field evolves, it promises to bridge the gap between technology and human emotional intelligence[1].
+Audio-visual sentiment analysis represents a significant advancement in understanding human emotions. By leveraging advanced attention mechanisms like BIMHA, BMAN, and GAAM, researchers can unlock new possibilities across industries, from entertainment to healthcare. As this field evolves, it promises to bridge the gap between technology and human emotional intelligence.
 
 The future of audio-visual sentiment analysis holds great potential for enhancing our understanding of human emotions and improving various aspects of our lives. As researchers continue to refine these models and address the challenges, we can expect to see even more sophisticated and accurate emotion recognition systems in the years to come.
 
-## Reference
-Please make sure to cite properly in your work, for example:
+## References
 
-[1] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." *Proceedings of the IEEE conference on computer vision and pattern recognition*. 2016.
+[1] Zhang, R., Xue, C., Qi, Q., Lin, L., Zhang, J., & Zhang, L. "Bimodal Fusion Network with Multi-Head Attention for Multimodal Sentiment Analysis." Applied Sciences, 13(1915), 2023. https://doi.org/10.3390/app13031915.
+
+[2] Ma, H., Wei, S., Yang, S., & Xu, J. "COnversation Understanding with Relational Temporal Graph Neural Network (CORECT)." ArXiv preprint, arXiv:2311.04507, 2023. https://doi.org/10.48550/arXiv.2311.04507.
+
+[3] Wu, T., Peng, J., Zhang, W., & Zhang, Y. "Video Sentiment Analysis with Bimodal Information-Augmented Multi-Head Attention." Knowledge-Based Systems, 235(2022), 107676. https://doi.org/10.1016/j.knosys.2021.107676.
+
+[4] Reagan, A. J., Mitchell, L., Kiley, D., Danforth, C. M., & Dodds, P. S. "The Emotional Arcs of Stories Are Dominated by Six Basic Shapes." IEEE International Conference on Data Mining (ICDM), 2017. https://alumni.media.mit.edu/~echu/assets/projects/emotional-arcs/11.2017.ICDM.pdf.
 
 ---
