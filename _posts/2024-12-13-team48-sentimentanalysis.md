@@ -116,7 +116,7 @@ Where $$\eta \in [0,1]$$ controls the contribution of speaker information.
 **Multimodal Graph Construction**
 
 The conversation is modeled as a graph $$G(V, R, E)$$, where:
-  - Nodes (V): Represent the audio, visual, and textual features for each utterance ($$|V| = 3N$$ nodes).
+  - Nodes (V): Represent the audio, visual, and textual features for each utterance ($$V = 3N$$).
   - Edges (E): Capture relationships between nodes, divided into:
     1. Multimodal Relations ($$R_\text{multi}$$): Intra-utterance connections between modalities.
     2. Temporal Relations ($$R_\text{temp}$$): Inter-utterance connections between past and future utterances within a specified window $$[P, F]$$.
