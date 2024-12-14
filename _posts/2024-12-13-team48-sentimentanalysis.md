@@ -14,9 +14,9 @@ date: 2024-12-13
 
 - [Introduction](#introduction)
 - [Key Components](#key-components)
-  - [Visual Analysis](#visual-analysis)
-  - [Audio Analysis](#audio-analysis)
-  - [Textual Analysis](#textual-analysis)
+  - [Visual Analysis](#1.-visual-analysis)
+  - [Audio Analysis](#2.-audio-analysis)
+  - [Textual Analysis](#3.-textual-analysis)
 - [Methodologies](#methodologies)
   - [Gaussian Adaptive Attention Mechanism (GAAM)](#gaussian-adaptive-attention-mechanism-gaam)
   - [COnversation Understanding with Relational Temporal Graph Neural Network (CORECT)](#conversation-understanding-with-relational-temporal-graph-neural-network-corect)
@@ -44,34 +44,34 @@ Sentiment analysis in videos is much harder than in plain text because of the co
 
 ## Key Components
 
-Audio-visual sentiment analysis combines three fundamental modalities: visual, audio, and textual data. Each modality contributes unique insights into emotional states, and their integration enables a holistic analysis.
+Audio-visual sentiment analysis combines three modalities: visual, audio, and text. Each modality contributes unique insights into emotional states, and their integration allows us to conduct a holistic analysis of human emotion.
 
 ### 1. Visual Analysis
 
-Visual features such as facial expressions, gestures, and body language play a pivotal role in conveying emotions. Computer vision techniques analyze these features through:
+Visual features such as facial expressions, gestures, and body language play an important role in conveying emotions. Key analysis techniques include:
 
-- Facial Landmark Detection: Identifying key points such as eyes, nose, and mouth to track expressions dynamically.
-- Convolutional Neural Networks (CNNs): Extracting deep hierarchical features from video frames for emotion classification.
+1. Facial Landmark Detection: This technique identifies key points such as eyes, nose, and mouth to track expressions dynamically.
+2. Convolutional Neural Networks (CNNs): This technique finds deep hierarchical features from video frames for emotion classification.
 
-Example: A smile detected in visual data often correlates with positive sentiment, but subtle variations in facial tension may indicate sarcasm or discomfort.
+For example, a smile detected in visual data often correlates with positive sentiment, but subtle variations in facial tension may indicate sarcasm or discomfort (such as a polite smile you give to someone when they simply won't stop talking).
 
 ### 2. Audio Analysis
 
-Audio signals reveal emotions through speech tone, pitch, and intensity. Key techniques include:
+Audio signals reveal emotions through speech tone, pitch, and intensity. Key analysis techniques include:
 
-- Mel-frequency Cepstral Coefficients (MFCCs): Representing audio signals in a frequency domain to capture emotional features.
-- Speech Prosody Analysis: Examining rhythm, stress, and intonation patterns for sentiment detection.
+1. Mel-frequency Cepstral Coefficients (MFCCs): This technique represents audio signals in a frequency domain.
+2. Speech Prosody Analysis: This technique finds rhythm, stress, and intonation patterns.
 
 Example: An elevated pitch combined with a rapid speech rate may indicate excitement, while a flat tone suggests apathy.
 
 ### 3. Textual Analysis
 
-While secondary to audio-visual data in this context, textual input provides crucial context. Natural Language Processing (NLP) models analyze text for:
+While not as important as audio-visual data, text input provides crucial context for our audio and visual features. Natural Language Processing (NLP) models analyze text for:
 
-- Sentiment Classification: Determining polarity (positive, negative, neutral).
-- Contextual Understanding: Recognizing idiomatic expressions, sarcasm, or contextual cues.
+1. Sentiment Classification: This technique determines polarity (positive, negative, neutral).
+2. Contextual Understanding: This technique recognizes idiomatic expressions, sarcasm, or contextual cues (unlike my mom, who doesn't understand my sarcasm lol).
 
-Example: The phrase "I'm fine" may appear neutral in isolation but acquires a negative connotation when paired with a frustrated tone and averted gaze.
+For example, the phrase "I'm fine" may appear neutral in isolation but acquires a negative connotation when paired with a frustrated tone and averted gaze.
 
 ## Methodologies
 
@@ -79,12 +79,12 @@ Example: The phrase "I'm fine" may appear neutral in isolation but acquires a ne
 
 ### Summary
 
-The Gaussian Adaptive Attention Mechanism (GAAM) addresses challenges in modeling non-stationary data by incorporating learnable Gaussian parameters for dynamic feature recalibration. By enhancing explainability and robustness, GAAM excels in multi-modal tasks such as emotion recognition and text classification.
+The Gaussian Adaptive Attention Mechanism (GAAM) is one of our favorite mechanisms that addresses the challenges in modeling non-stationary data. It incorporates learnable Gaussian parameters for dynamic feature recalibration to enhance explainability and robustness. This lets GAAM excel in multi-modal tasks such as emotion recognition and text classification, our goal for this project.
 
 ### Key Contributions
 
-- GAAM introduces a learnable Gaussian-based attention mechanism where the mean and variance are dynamically adjusted. This enhances the model's ability to capture contextually significant features across modalities such as text, audio, and vision.
-- The mechanism integrates an Importance Factor (IF), improving the explainability of attention outputs by quantifying feature significance.
+1. GAAM introduces a learnable Gaussian-based attention mechanism where the mean and variance are dynamically adjusted. This significantly improves the model's ability to capture contextually significant features across our three modalities of text, audio, and vision.
+2. GAAM integrates an Importance Factor (IF), improving the explainability of attention outputs by quantifying the significance of different features.
 
 ![GAAM]({{ '/assets/images/48/GAAM.png' | relative_url }})
 
