@@ -94,40 +94,43 @@ The Gaussian Adaptive Attention Mechanism (GAAM) is one of our favorite mechanis
 
 **Unimodal Encoding**
 
-- Each statement $$u_i$$ in the dialogue is processed to extract features for each modality:
+Each statement $$u_i$$ in the dialogue is processed to extract features for each modality:
   - Audio features: $$x_i^a \in \mathbb{R}^{d_a}$$
   - Visual features: $$x_i^v \in \mathbb{R}^{d_v}$$
-  - Textual features: $$x_i^l \in \mathbb{R}^{d_l}$$
-- For text, a Transformer encoder generates semantic features: $$x_i^l = \text{Transformer}(u_i^l, W_l^\text{trans})$$, where $$W_l^\text{trans}$$ represents the trainable parameters of the Transformer model.
-- For audio and visual features, a fully connected network (FCN) is used:
+  - Text features: $$x_i^l \in \mathbb{R}^{d_l}$$
+
+For text, a Transformer encoder generates semantic features: $$x_i^l = \text{Transformer}(u_i^l, W_l^\text{trans})$$, where $$W_l^\text{trans}$$ represents the trainable parameters of the Transformer model. For audio and visual features, a fully connected network (FCN) is used:
   $$x_i^a = \text{FCN}(u_i^a, W_a^\text{FCN}), \quad x_i^v = \text{FCN}(u_i^v, W_v^\text{FCN})$$
-  where $$W_a^\text{FCN}$$ and $$W_v^\text{FCN}$$ are learnable parameters for each modality.
+
+Where $$W_a^\text{FCN}$$ and $$W_v^\text{FCN}$$ are learnable parameters for each modality.
 
 **Speaker Embedding**
 
-- Speaker identity is encoded to capture conversational dynamics: $$S_\text{emb} = \text{Embedding}(S, N_S)$$, where $$N_S$$ is the total number of speakers.
-- Speaker embeddings are added to the unimodal features to enhance context:
+The speaker's identity is encoded to capture conversational dynamics: $$S_\text{emb} = \text{Embedding}(S, N_S)$$, where $$N_S$$ is the total number of speakers. Speaker embeddings are added to the unimodal features to enhance context:
   $$X^\tau = \eta S_\text{emb} + X^\tau, \quad \tau \in \{a, v, l\}$$
-  where $$\eta \in [0,1]$$ controls the contribution of speaker information.
+
+Where $$\eta \in [0,1]$$ controls the contribution of speaker information.
 
 #### 2. Relational Temporal Graph Convolutional Network (RT-GCN)
 
 **Multimodal Graph Construction**
 
-- The conversation is modeled as a graph $$G(V, R, E)$$, where:
+The conversation is modeled as a graph $$G(V, R, E)$$, where:
   - Nodes (V): Represent the audio, visual, and textual features for each utterance ($$|V| = 3N$$ nodes).
   - Edges (E): Capture relationships between nodes, divided into:
     1. Multimodal Relations ($$R_\text{multi}$$): Intra-utterance connections between modalities.
     2. Temporal Relations ($$R_\text{temp}$$): Inter-utterance connections between past and future utterances within a specified window $$[P, F]$$.
-- For example, multimodal relationships ($$R_\text{multi}$$) are defined as:
+
+For example, multimodal relationships ($$R_\text{multi}$$) are defined as:
   $$R_\text{multi} = \{(u_i^a, u_i^v), (u_i^v, u_i^l), (u_i^l, u_i^a)\}.$$
-- Temporal relationships ($$R_\text{temp}$$) capture connections across time:
+  
+Temporal relationships ($$R_\text{temp}$$) capture connections across time:
   $$R_\text{temp} = \{(u_j^\tau \rightarrow u_i^\tau) | i-P < j < i+F\},$$
   where $$P$$ and $$F$$ are the past and future windows, respectively.
 
 **Graph Learning**
 
-- Using Relational Graph Convolution Networks (RGCN), each node aggregates information from its neighbors:
+Using Relational Graph Convolution Networks (RGCN), each node aggregates information from its neighbors:
   $$g_i^\tau = \sum_{r \in R} \sum_{j \in N_r(i)} \frac{1}{|N_r(i)|} W_r x_i^\tau + W_o x_i^\tau,$$
   where:
   - $$N_r(i)$$: Neighbors of node $$i$$ for relation $$r$$,
@@ -138,12 +141,12 @@ The Gaussian Adaptive Attention Mechanism (GAAM) is one of our favorite mechanis
 
 **Cross-Modal Attention**
 
-- The P-CM module uses attention mechanisms to model unaligned sequences between modalities (e.g., audio, text, video).
-- For two modalities (e.g., audio $$a$$ and text $$l$$), features are computed as:
+The P-CM module uses attention mechanisms to model unaligned sequences between modalities (e.g., audio, text, video). For two modalities (e.g., audio $$a$$ and text $$l$$), features are computed as:
   - Queries (Q): $$Q_a = X_a W_Q^a$$,
   - Keys (K): $$K_l = X_l W_K^l$$,
   - Values (V): $$V_l = X_l W_V^l$$.
-- Cross-modal attention is computed as:
+
+Cross-modal attention is computed as:
   $$CM_{l \rightarrow a} = \sigma\left(\frac{Q_a K_l^T}{\sqrt{d_k}}\right) V_l,$$
   where:
   - $$\sigma$$: Softmax function,
@@ -152,27 +155,30 @@ The Gaussian Adaptive Attention Mechanism (GAAM) is one of our favorite mechanis
 
 **Sequential Cross-Modal Layers**
 
-- Cross-modal transformers are applied over $$D$$ layers:
+Cross-modal transformers are applied over $$D$$ layers:
   - At each layer $$i$$, the representation for $$l \rightarrow a$$ is updated as:
     $$Z_{l \to a}[i] = CM_{l \to a}[i](\text{LN}(Z_{l \to a}[i-1])) + \text{LN}(Z_{l \to a}[i-1]),$$
     where:
     - $$Z_{l \to a}[i]$$: Representation at layer $$i$$,
     - LN: Layer normalization.
-- This process is repeated for all modality pairs to obtain global cross-modal features:
+
+This process is repeated for all modality pairs to obtain global cross-modal features:
   $$Z^\text{final} = [Z_{a \to l}, Z_{v \to l}, Z_{a \to v}].$$
 
 #### 4. Multimodal Emotion Classification
 
 **Fusion and Prediction**
 
-- Local (RT-GCN) and global (P-CM) context representations are concatenated:
+Local (RT-GCN) and global (P-CM) context representations are concatenated:
   $$H = \text{Fusion}([G, Z]) = [\{o_i^\tau\}, \{Z_{a \leftrightarrow l}, Z_{v \leftrightarrow l}, Z_{a \leftrightarrow v}\}],$$
   where $$H$$ is the final fused representation.
-- The final emotion label for each utterance is predicted using a fully connected neural network (FCN):
+  
+The final emotion label for each utterance is predicted using a fully connected neural network (FCN):
   $$v_i = \text{ReLU}(\Phi_o h_i + b_o),$$
   $$p_i = \text{softmax}(\Phi_1 v_i + b_1),$$
   $$\hat{y}_i = \arg\max(p_i).$$
-  Here, $$\Phi_o, \Phi_1$$ are learnable parameters, and $$\hat{y}_i$$ is the predicted emotion label.
+
+Here, $$\Phi_o, \Phi_1$$ are learnable parameters, and $$\hat{y}_i$$ is the predicted emotion label.
 
 ---
 
@@ -193,9 +199,7 @@ The CORECT model is a new neural network framework designed for multimodal emoti
 
 #### 1. Relational Graph Convolutional Network (RGCN)
 
-Our objective is to capture the interactions between different nodes (utterances) and modalities (audio, video, text) in a multimodal graph.
-
-For each relation $$r$$ (e.g., between audio and text or between past and future utterances), the node representation is updated based on its neighbors:
+Our objective is to capture the interactions between different nodes (utterances) and modalities (audio, video, text) in a multimodal graph. For each relation $$r$$ (e.g., between audio and text or between past and future utterances), the node representation is updated based on its neighbors:
   $$g_i^\tau = \sum_{r \in R} \sum_{j \in N_r(i)} \frac{1}{|N_r(i)|} W_r \cdot x_j^\tau + W_0 \cdot x_i^\tau$$
   - $$N_r(i)$$: Neighbors of node $$i$$ for relation $$r$$.
   - $$W_r$$: Weight matrix for the relation $$r$$.
