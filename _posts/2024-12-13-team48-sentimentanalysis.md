@@ -278,7 +278,7 @@ BMHA computes attention across pairwise features to capture relationships betwee
 
 **Attention Calculation**
 
-1. Linear Projection of Input Features
+1. Linear Projection of Input Features 
 2. Attention Weights Calculation
 3. Bimodal Attention Output
 
